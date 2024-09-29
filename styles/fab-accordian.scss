@@ -9,13 +9,13 @@ body {
     align-items: center;
     justify-content: center;
     background-color: $light-pink;
-    background-image: url('/faq-accordian/assets/images/background-pattern-desktop.svg');
+    background-image: url('./assets/images/background-pattern-desktop.svg');
     background-repeat: no-repeat; /* Prevent image repetition */
     background-position: center top; 
 
     /* Media query for small screens */
     @media (max-width: 375px) {
-      background-image: url('/faq-accordian/images/background-pattern-mobile.svg');
+      background-image: url('./assets/images/background-pattern-mobile.svg');
     }
 }
 
