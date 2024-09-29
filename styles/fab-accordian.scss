@@ -1,0 +1,113 @@
+@import 'variables';
+
+body {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    margin: 0; /* Remove default margins */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $light-pink;
+    background-image: url('../assets/images/background-pattern-desktop.svg');
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center top; 
+
+    /* Media query for small screens */
+    @media (max-width: 375px) {
+      background-image: url('../assets/images/background-pattern-mobile.svg');
+    }
+}
+
+.acc-container {
+    height: fit-content;
+    width: 500px;
+    background-color: $white;
+    z-index: 2;
+    border-radius: 12px;
+    padding-bottom: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    /* Media query for small screens */
+    @media (max-width: 375px) {
+        width: 90%;
+    }
+
+    .acc-header {
+        height: 50px;
+        padding: 30px 20px 10px;
+        display: flex;
+        align-items: center;
+
+        .header-icon {
+            height: 25px;
+            width: 25px;
+            background-image: url('../assets/images/icon-star.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .header-title {
+            font-size: 32px;
+            padding-left: 20px;
+        }
+    }
+
+    .faq-container {
+        color: $dark-purple;
+        padding-inline: 20px;
+
+        .accordian-container {
+            padding-top: 20px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $light-pink;
+            }
+
+            .question-container {
+                padding-bottom: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: $dark-purple;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $grayish-purple !important;
+                }
+
+                .question {
+                    font-size: 16px;
+                    color: inherit;
+
+                    /* Media query for small screens */
+                    @media (max-width: 375px) {
+                        max-width: 80%;
+                    }
+                }
+
+                .question-icon {
+                    height: 25px;
+                    width: 25px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            .answer-container {
+                max-height: 0;
+                overflow: hidden;
+                padding-bottom: 0;
+                color: $grayish-purple;
+                font-size: 14px;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+
+                &.show {
+                    max-height: 500px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+}
