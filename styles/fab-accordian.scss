@@ -1,5 +1,17 @@
 @import 'variables';
 
+// Define the root font size (usually 16px for most browsers)
+$base-font-size: 16px;
+
+// SCSS function to convert px to rem
+@function px-to-rem($px) {
+    // @if math.is-unitless($px) {
+    //     @return math.div($px, 16) + rem;
+    // }
+    @return ($px/16) + rem;
+}
+
+
 body {
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
@@ -9,39 +21,39 @@ body {
     align-items: center;
     justify-content: center;
     background-color: $light-pink;
-    background-image: url('./assets/images/background-pattern-desktop.svg');
+    background-image: url('../assets/images/background-pattern-desktop.svg');
     background-repeat: no-repeat; /* Prevent image repetition */
     background-position: center top; 
 
     /* Media query for small screens */
-    @media (max-width: 375px) {
-      background-image: url('./assets/images/background-pattern-mobile.svg');
+    @media (max-width: px-to-rem(375)) {
+      background-image: url('../assets/images/background-pattern-mobile.svg');
     }
 }
 
 .acc-container {
     height: fit-content;
-    width: 500px;
+    width: px-to-rem(500);
     background-color: $white;
     z-index: 2;
-    border-radius: 12px;
-    padding-bottom: 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: px-to-rem(12);
+    padding-bottom: px-to-rem(20);
+    box-shadow: rgba(149, 157, 165, 0.2) px-to-rem(0) px-to-rem(8) px-to-rem(24);
 
     /* Media query for small screens */
-    @media (max-width: 375px) {
+    @media (max-width: px-to-rem(375)) {
         width: 90%;
     }
 
     .acc-header {
-        height: 50px;
-        padding: 30px 20px 10px;
+        height: px-to-rem(50);
+        padding: px-to-rem(30) px-to-rem(20) px-to-rem(10);
         display: flex;
         align-items: center;
 
         .header-icon {
-            height: 25px;
-            width: 25px;
+            height: px-to-rem(25);
+            width: px-to-rem(25);
             background-image: url('../assets/images/icon-star.svg');
             background-repeat: no-repeat;
             background-size: cover;
@@ -49,24 +61,24 @@ body {
         }
 
         .header-title {
-            font-size: 32px;
-            padding-left: 20px;
+            font-size: px-to-rem(32);
+            padding-left: px-to-rem(20);
         }
     }
 
     .faq-container {
         color: $dark-purple;
-        padding-inline: 20px;
+        padding-inline: px-to-rem(20);
 
         .accordian-container {
-            padding-top: 20px;
+            padding-top: px-to-rem(20);
 
             &:not(:last-child) {
-                border-bottom: 1px solid $light-pink;
+                border-bottom: px-to-rem(1) solid $light-pink;
             }
 
             .question-container {
-                padding-bottom: 20px;
+                padding-bottom: px-to-rem(20);
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -78,18 +90,18 @@ body {
                 }
 
                 .question {
-                    font-size: 16px;
+                    font-size: px-to-rem(16);
                     color: inherit;
 
                     /* Media query for small screens */
-                    @media (max-width: 375px) {
+                    @media (max-width: px-to-rem(375)) {
                         max-width: 80%;
                     }
                 }
 
                 .question-icon {
-                    height: 25px;
-                    width: 25px;
+                    height: px-to-rem(25);
+                    width: px-to-rem(25);
                     background-repeat: no-repeat;
                     background-size: cover;
                 }
@@ -100,12 +112,12 @@ body {
                 overflow: hidden;
                 padding-bottom: 0;
                 color: $grayish-purple;
-                font-size: 14px;
+                font-size: px-to-rem(14);
                 transition: max-height 0.3s ease, padding 0.3s ease;
 
                 &.show {
-                    max-height: 500px;
-                    padding-bottom: 20px;
+                    max-height: px-to-rem(500);
+                    padding-bottom: px-to-rem(20);
                 }
             }
         }
